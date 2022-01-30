@@ -1,9 +1,9 @@
-function requireHTTPS(req, res, next) {
+/*function requireHTTPS(req, res, next) {
     if (!req.secure && req.get('x-forwarded-proto') !== 'https') {
         return res.redirect('https://' + req.get('host') + req.url);
     }
     next();
-}
+}*/
 
 const express = require('express')
 const cors = require('cors')
@@ -13,7 +13,7 @@ const CSV = require('./csvModel/csv')
 const app = express()
 
 app.use(cors())
-app.use(requireHTTPS);
+//app.use(requireHTTPS);
 app.use(express.static(`./client/dist/app-test`));
 
 app.use('/tabela', async function(req, res, next) {
