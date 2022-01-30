@@ -1,5 +1,11 @@
+function requireHTTPS(req, res, next) {
+    if (!req.secure && req.get('x-forwarded-proto') !== 'https') {
+        return res.redirect('https://' + req.get('host') + req.url);
+    }
+    next();
+}
+
 const express = require('express')
-const path = require('path')
 const cors = require('cors')
 
 const CSV = require('./csvModel/csv')
@@ -7,14 +13,8 @@ const CSV = require('./csvModel/csv')
 const app = express()
 
 app.use(cors())
-
-if(process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, 'client/build')))
-
-    app.get('*', function(req, res) {
-        res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
-    })
-}
+app.use(requireHTTPS);
+app.use(express.static(`./client/dist/app-test`));
 
 app.use('/tabela', async function(req, res, next) {
     const csv = await CSV.find()
@@ -25,5 +25,11 @@ app.use('/tabela', async function(req, res, next) {
         }
     })
 })
+
+app.get('/*', function(req, res) {
+    res.sendFile('index.html', {root: './client/dist/app-test/'}
+  );
+});
+
 
 module.exports = app
