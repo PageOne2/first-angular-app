@@ -14,7 +14,7 @@ const app = express()
 
 app.use(cors())
 //app.use(requireHTTPS);
-app.use(express.static(__dirname, '/client/dist/app-test'));
+app.use(express.static(`${__dirname}/client/dist/app-test`));
 
 app.use('/tabela', async function(req, res, next) {
     const csv = await CSV.find()
