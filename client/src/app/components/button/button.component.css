@@ -1,0 +1,13 @@
+.btn {
+  display: flex;
+  justify-content: center;
+  padding: 10px 25px;
+  background-color: rgb(38, 185, 1);
+  border: none;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}

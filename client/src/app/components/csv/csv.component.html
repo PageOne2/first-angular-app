@@ -1,0 +1,25 @@
+<div class="table">
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Sobrenome</th>
+                <th>Idade</th>
+                <th>Cidade</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let csv of CSVs">
+                <td>{{csv.nome}}</td>
+                <td>{{csv.sobrenome}}</td>
+                <td>{{csv.idade}}</td>
+                <td>{{csv.cidade}}</td>
+                <td>{{csv.email}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <button class="go-back">
+        <a routerLink="/">Voltar</a>
+    </button>
+</div>
