@@ -12,7 +12,7 @@ export class ApiServicesService {
   constructor(private http:HttpClient) { }
 
   getData(): Observable<any> {
-    return this.http.get('http://localhost:3000/tabela')
+    return this.http.get('/tabela')
     /*try {
       const data = await fetch('http://localhost:3000/api/recipes')
       const res = await data.json()

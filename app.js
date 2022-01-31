@@ -25,10 +25,10 @@ app.use('/tabela', async function(req, res, next) {
         }
     })
 })
-
-app.get('/*', function(req, res) {
+    
+app.get('*', function(req, res) {
     res.sendFile('index.html', {root: path.join(__dirname, '/client/dist/app-test/')}
-  );
+    );
 });
 
 
