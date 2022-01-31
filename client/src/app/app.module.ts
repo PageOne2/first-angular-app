@@ -9,7 +9,7 @@ import { ButtonComponent } from './components/button/button.component';
 
 const appRoutes: Routes = [
   { path: '', component: ButtonComponent},
-  { path: 'dados', component: CsvComponent}
+  { path: 'tabela', component: CsvComponent}
 ]
 
 @NgModule({
