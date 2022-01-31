@@ -16,7 +16,7 @@ app.use(cors())
 //app.use(requireHTTPS);
 app.use(express.static(path.join(__dirname, '/client/dist/app-test')));
 
-app.use('/tabela', async function(req, res, next) {
+app.use('/api/getCsvs', async function(req, res, next) {
     const csv = await CSV.find()
     res.status(200).json({
         status: 'success',
